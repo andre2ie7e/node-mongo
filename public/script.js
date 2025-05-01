@@ -23,7 +23,7 @@ for (let i = 0; i < filas; i++) {
       asiento.classList.add("ocupada");
     }
 
-    asiento.dataset.id = '${i}-${j}';
+    asiento.dataset.id = `${i}-${j}`;
 
     asiento.addEventListener("click", () => {
       if (asiento.classList.contains("ocupada")) return;
@@ -70,10 +70,10 @@ reservaForm.addEventListener("submit", async (e) => {
     const result = await response.json();
 
     if (response.ok) {
-      alert('Butacas guardadas: ${seleccionadas.join(', ')}');
+      alert(`Butacas guardadas: ${seleccionadas.join(', ')}`);
 
       seleccionadas.forEach(id => {
-        const asiento = document.querySelector('[data-id="${id}"]');
+        const asiento = document.querySelector(`[data-id="${id}"]`);
         if (asiento) {
           asiento.classList.remove("seleccionada");
           asiento.classList.add("disponible");
